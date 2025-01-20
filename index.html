@@ -3,10 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Username's Words</title>
+    <title>Username's Words Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fdf6e3; /* Light cream background */
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            color: #ff9800; /* Orange accent */
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li {
+            background-color: #ffe0b2; /* Light orange background */
+            color: #333;
+            margin: 5px auto;
+            padding: 10px;
+            width: fit-content;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        textarea {
+            width: 80%;
+            max-width: 400px;
+            height: 100px;
+            border: 2px solid #ff9800; /* Orange border */
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 1rem;
+            resize: none;
+        }
+        button {
+            background-color: #ff9800; /* Orange button */
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        button:hover {
+            background-color: #e68900;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        .positive {
+            color: #4caf50; /* Green for no scream */
+        }
+        .negative {
+            color: #f44336; /* Red for scream */
+        }
+    </style>
 </head>
 <body>
-    <h1>Username's Words</h1>
+    <h1>Username's Words Checker</h1>
+    <p>Here are the words that might make Username scream:</p>
     <ul>
         <li>a</li>
         <li>grrrrr</li>
@@ -15,10 +77,10 @@
     </ul>
 
     <h2>Check Your Message</h2>
-    <textarea id="message" placeholder="Type your message here..." rows="4" cols="50"></textarea><br><br>
+    <textarea id="message" placeholder="Type your message here..."></textarea><br>
     <button onclick="checkMessage()">Check Message</button>
     
-    <p id="result" style="color: red; font-weight: bold; text-align: left;"></p>
+    <p id="result"></p>
 
     <script>
         const words = ["a", "grrrrr", "hello hello", "I caca"];
@@ -30,8 +92,10 @@
 
             if (foundWord) {
                 result.textContent = "Username is going to scream at you!";
+                result.className = "negative";
             } else {
-                result.textContent = "";
+                result.textContent = "You're safe! Username won't scream at you.";
+                result.className = "positive";
             }
         }
     </script>
