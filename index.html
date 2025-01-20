@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Username's Words</title>
+</head>
+<body>
+    <h1>Username's Words</h1>
+    <ul>
+        <li>a</li>
+        <li>grrrrr</li>
+        <li>hello hello</li>
+        <li>I caca</li>
+    </ul>
+
+    <h2>Check Your Message</h2>
+    <textarea id="message" placeholder="Type your message here..." rows="4" cols="50"></textarea><br><br>
+    <button onclick="checkMessage()">Check Message</button>
+    
+    <p id="result" style="color: red; font-weight: bold; text-align: left;"></p>
+
+    <script>
+        const words = ["a", "grrrrr", "hello hello", "I caca"];
+
+        function checkMessage() {
+            const message = document.getElementById("message").value.toLowerCase();
+            const result = document.getElementById("result");
+            const foundWord = words.find(word => message.includes(word.toLowerCase()));
+
+            if (foundWord) {
+                result.textContent = "Username is going to scream at you!";
+            } else {
+                result.textContent = "";
+            }
+        }
+    </script>
+</body>
+</html>
